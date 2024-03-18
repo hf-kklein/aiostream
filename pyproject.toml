@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiostream"
+version = "0.5.3.dev0"
+description = "Generator-based operators for asynchronous iteration"
+readme = "README.rst"
+authors = [{ name = "Vincent Michel", email = "vxgmichel@gmail.com" }]
+license = "GPL-3.0-or-later"
+classifiers = [
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+urls = { "Homepage" = "https://github.com/vxgmichel/aiostream" }
+
+[project.optional-dependencies]
+test = ["pytest", "pytest-asyncio", "pytest-cov"]
+
+[project.scripts]
+# Define any entry points such as console scripts here
+
+[project.dependencies]
+typing-extensions = "*"
+setuptools = { version = "*", markers = "python_version == '3.12'" }
+
+[tool.setuptools]
+packages = ["aiostream", "aiostream.stream"]
+python-requires = ">=3.8"
+package-data = { "aiostream" = ["py.typed"] }
+
+[tool.pytest.ini_options]
+addopts = "tests --strict-markers --cov aiostream --cov-report html --cov-report term"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+    "..."
+]
+
+[tool.setuptools.aliases]
+test = "pytest"
+
+[flake8]
+max-line-length = 88
+ignore = ["F401", "F403", "E731", "W503", "E501", "E203"]
+
+[tool.mypy]
+strict = true
+packages = ["aiostream", "examples"]
+
+[mypy-aiostream.test_utils]
+ignore_errors = true
