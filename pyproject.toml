@@ -7,7 +7,7 @@ name = "aiostream"
 version = "0.5.3.dev0"
 description = "Generator-based operators for asynchronous iteration"
 readme = "README.rst"
-authors = [{name = "Vincent Michel", email = "vxgmichel@gmail.com"}]
+authors = [{ name = "Vincent Michel", email = "vxgmichel@gmail.com" }]
 license = "GPL-3.0-or-later"
 classifiers = [
     "Programming Language :: Python",
@@ -18,7 +18,7 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-urls = {"Homepage"= "https://github.com/vxgmichel/aiostream"}
+urls = { "Homepage" = "https://github.com/vxgmichel/aiostream" }
 
 [project.optional-dependencies]
 test = ["pytest", "pytest-asyncio", "pytest-cov"]
@@ -28,12 +28,12 @@ test = ["pytest", "pytest-asyncio", "pytest-cov"]
 
 [project.dependencies]
 typing-extensions = "*"
-setuptools = {version = "*", markers = "python_version == '3.12'"}
+setuptools = { version = "*", markers = "python_version == '3.12'" }
 
 [tool.setuptools]
 packages = ["aiostream", "aiostream.stream"]
 python-requires = ">=3.8"
-package-data = {"aiostream"= ["py.typed"]}
+package-data = { "aiostream" = ["py.typed"] }
 
 [tool.pytest.ini_options]
 addopts = "tests --strict-markers --cov aiostream --cov-report html --cov-report term"
